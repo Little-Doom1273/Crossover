@@ -31,6 +31,22 @@ const basketballTerms = [
     term: "Luxury Tax / Apron",
     def: "NBA teams that spend above a certain salary threshold pay a financial penalty (the luxury tax), and spending even further above that triggers stricter roster-building restrictions (the \"apron\"). It's the league's way of stopping the richest teams from simply outspending everyone else indefinitely.",
   },
+  {
+    term: "Trade Deadline",
+    def: "A date partway through the season after which teams can no longer trade players with each other for the rest of that season. The days right before it are some of the most chaotic on the sports calendar — contending teams scramble to add talent while struggling teams sell off stars for future assets.",
+  },
+  {
+    term: "Triple-Double",
+    def: "Reaching double digits in three statistical categories in one game — usually points, rebounds, and assists (10+ of each). It's shorthand for a dominant all-around performance rather than just a big scoring night.",
+  },
+  {
+    term: "March Madness",
+    def: "The NCAA's season-ending tournament: 68 college teams, single elimination, three weekends. One loss and you're out, which is why huge upsets ('bracket busters') happen every year and why it's many people's favorite sporting event, period.",
+  },
+  {
+    term: "Positions at a Glance",
+    def: "Point guard (runs the offense, usually smallest), shooting guard (scoring and outside shooting), small forward (versatile wing), power forward and center (the big players near the basket). Modern basketball blurs these lines constantly — you'll hear 'guard,' 'wing,' and 'big' more than the formal five positions.",
+  },
 ];
 
 const soccerTerms = [
@@ -65,6 +81,26 @@ const soccerTerms = [
   {
     term: "Derby",
     def: "A match between two rival clubs, usually from the same city or region (Arsenal vs. Tottenham, for example). Table position often matters less than pure pride in these games.",
+  },
+  {
+    term: "Offside",
+    def: "An attacker can't be closer to the opponent's goal than the second-to-last defender at the moment a teammate passes the ball forward to them. It exists to stop players from just camping next to the goal — and it produces endless millimeter-level controversy every single week.",
+  },
+  {
+    term: "VAR",
+    def: "Video Assistant Referee — off-field officials reviewing replays who can overturn clear errors on goals, penalties, red cards, and mistaken identity. Introduced to fix obvious mistakes; famous for generating brand-new arguments instead.",
+  },
+  {
+    term: "Yellow & Red Cards",
+    def: "A yellow card is a formal warning; two yellows in one match make a red. A straight red (for serious fouls or denying a clear goal chance) means the same thing: the player is sent off, can't be replaced, and their team plays the rest of the match a player short.",
+  },
+  {
+    term: "Hat-Trick",
+    def: "One player scoring three goals in a single match. Rare enough to be a genuine event — tradition says the scorer keeps the match ball.",
+  },
+  {
+    term: "Clean Sheet",
+    def: "When a team concedes zero goals in a match. It's the main stat goalkeepers and defenses get credit for — 'keeping a clean sheet' is to defending what scoring is to attacking.",
   },
 ];
 
