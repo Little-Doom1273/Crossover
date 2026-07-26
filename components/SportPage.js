@@ -54,12 +54,26 @@ export default async function SportPage({ sportKey, leagueKey = "top" }) {
               rel="noopener noreferrer"
               className="news-item"
             >
-              <div className="news-meta">
-                <span>{item.source}</span>
-                <time>{timeLabel(item.published)}</time>
+              {item.image ? (
+                <img
+                  src={item.image}
+                  alt=""
+                  loading="lazy"
+                  className="news-thumb"
+                />
+              ) : (
+                <div className="news-thumb news-thumb-placeholder">
+                  {sportKey === "basketball" ? "🏀" : "⚽"}
+                </div>
+              )}
+              <div className="news-item-body">
+                <div className="news-meta">
+                  <span>{item.source}</span>
+                  <time>{timeLabel(item.published)}</time>
+                </div>
+                <h3>{item.title}</h3>
+                {item.summary && <p>{item.summary}</p>}
               </div>
-              <h3>{item.title}</h3>
-              {item.summary && <p>{item.summary}</p>}
             </a>
           ))}
         </div>

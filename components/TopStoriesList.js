@@ -28,6 +28,18 @@ export default function TopStoriesList({ stories }) {
           className="top-story"
         >
           <span className="top-story-rank">{index + 1}</span>
+          {story.image ? (
+            <img
+              src={story.image}
+              alt=""
+              loading="lazy"
+              className="news-thumb"
+            />
+          ) : (
+            <div className="news-thumb news-thumb-placeholder" data-sport={story.sportKey}>
+              {story.sportKey === "basketball" ? "🏀" : "⚽"}
+            </div>
+          )}
           <div className="top-story-body">
             <div className="top-story-meta" data-sport={story.sportKey}>
               <span className="sport-dot" aria-hidden="true" />
