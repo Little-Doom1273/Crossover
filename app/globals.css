@@ -868,3 +868,44 @@ a {
     flex-direction: column;
   }
 }
+
+/* ---- Daily Briefing ---- */
+/* Reuses .explainer-badge (the gradient AI-powered pill) from the 101
+   page. Same dual-sport gradient treatment as Ask Crossover, since the
+   briefing spans both sports. */
+
+.daily-briefing {
+  margin-top: 56px;
+  padding: 28px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  position: relative;
+}
+
+.daily-briefing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 1px;
+  background: linear-gradient(120deg, var(--basketball), var(--soccer));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.daily-briefing h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.daily-briefing p {
+  margin-top: 14px;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  max-width: 760px;
+}

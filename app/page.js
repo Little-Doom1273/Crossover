@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllNews, backfillMissingImages } from "../lib/news";
 import { getTodaysTopStories } from "../lib/topStories";
+import { generateBriefing } from "../lib/briefing";
 import AutoRefresh from "../components/AutoRefresh";
 import TopStoriesList from "../components/TopStoriesList";
 
@@ -11,6 +12,7 @@ export default async function HomePage() {
   const fetchedAt = Date.now();
   const ranked = getTodaysTopStories(allNews, { limit: 10, hours: 24 });
   const stories = await backfillMissingImages(ranked);
+  const briefing = await generateBriefing(stories);
 
   return (
     <>
@@ -37,6 +39,14 @@ export default async function HomePage() {
           </Link>
         </div>
       </div>
+
+      {briefing && (
+        <section className="daily-briefing">
+          <span className="explainer-badge">AI-powered</span>
+          <h2>Today&rsquo;s Briefing</h2>
+          <p>{briefing}</p>
+        </section>
+      )}
 
       <section className="home-top-stories">
         <div className="home-top-stories-header">
