@@ -105,6 +105,12 @@ a {
   color: var(--text);
 }
 
+.nav-101:hover,
+.nav-101:focus-visible {
+  border-color: var(--text);
+  color: var(--text);
+}
+
 /* ---- Homepage ---- */
 
 .home-hero {
@@ -654,4 +660,211 @@ a {
   color: var(--text-dim);
   margin-top: 6px;
   font-size: 0.95rem;
+}
+
+/* ---- 101 / Learn page ---- */
+
+.learn-page {
+  padding-top: 28px;
+  padding-bottom: 40px;
+}
+
+.learn-intro {
+  color: var(--text-dim);
+  margin-top: 12px;
+  max-width: 640px;
+}
+
+.learn-section {
+  margin-top: 56px;
+}
+
+.learn-section[data-accent="orange"] {
+  --accent: var(--basketball);
+}
+
+.learn-section[data-accent="green"] {
+  --accent: var(--soccer);
+}
+
+.learn-section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+}
+
+.learn-section-intro {
+  color: var(--text-dim);
+  margin-top: 18px;
+  max-width: 720px;
+  font-size: 1rem;
+}
+
+.learn-section-intro strong {
+  color: var(--text);
+}
+
+.glossary {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.glossary-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.glossary-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.glossary-item dt {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.glossary-item dd {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .glossary-item {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+/* ---- Ask Crossover (AI explainer box) ---- */
+/* Uses a two-color gradient border (basketball orange -> soccer green)
+   since this box spans both sports, rather than borrowing either single
+   accent color. */
+
+.explainer-box {
+  margin-top: 28px;
+  padding: 24px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  position: relative;
+}
+
+.explainer-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 1px;
+  background: linear-gradient(120deg, var(--basketball), var(--soccer));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.explainer-badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--basketball), var(--soccer));
+  color: var(--bg);
+  margin-bottom: 12px;
+}
+
+.explainer-label {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.explainer-hint {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-top: 8px;
+  max-width: 560px;
+}
+
+.explainer-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  max-width: 560px;
+}
+
+.explainer-input {
+  flex: 1;
+  padding: 11px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+.explainer-input:focus-visible {
+  outline: none;
+  border-color: var(--text);
+}
+
+.explainer-submit {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 11px 22px;
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.explainer-submit:hover,
+.explainer-submit:focus-visible {
+  opacity: 0.85;
+}
+
+.explainer-submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.explainer-error {
+  margin-top: 16px;
+  color: var(--basketball);
+  font-size: 0.9rem;
+}
+
+.explainer-answer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+@media (max-width: 480px) {
+  .explainer-form {
+    flex-direction: column;
+  }
 }

@@ -32,6 +32,9 @@ export default function RootLayout({ children }) {
             <Link href="/my-feed" className="nav-link nav-myfeed">
               My Feed
             </Link>
+            <Link href="/101" className="nav-link nav-101">
+              101
+            </Link>
           </nav>
         </header>
         <main>{children}</main>
