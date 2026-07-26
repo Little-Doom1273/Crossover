@@ -177,7 +177,7 @@ export default function MyFeedClient({ allNews }) {
                   <div className="news-meta" data-sport={item.sportKey}>
                     <span className="sport-dot" aria-hidden="true" />
                     <span>{item.source}</span>
-                    <time>{timeLabel(item.published)}</time>
+                    {item.timeReliable !== false && <time>{timeLabel(item.published)}</time>}
                   </div>
                   <h3>{item.title}</h3>
                   {item.summary && <p>{item.summary}</p>}

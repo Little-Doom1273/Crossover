@@ -48,7 +48,7 @@ export default function TopStoriesList({ stories }) {
                   ? `${story.sourceCount} outlets covering`
                   : story.sources[0]}
               </span>
-              <time>{timeLabel(story.published)}</time>
+              {story.timeReliable !== false && <time>{timeLabel(story.published)}</time>}
             </div>
             <h3>{story.headline}</h3>
             {story.summary && <p>{story.summary}</p>}

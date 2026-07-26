@@ -69,7 +69,7 @@ export default async function SportPage({ sportKey, leagueKey = "top" }) {
               <div className="news-item-body">
                 <div className="news-meta">
                   <span>{item.source}</span>
-                  <time>{timeLabel(item.published)}</time>
+                  {item.timeReliable !== false && <time>{timeLabel(item.published)}</time>}
                 </div>
                 <h3>{item.title}</h3>
                 {item.summary && <p>{item.summary}</p>}
