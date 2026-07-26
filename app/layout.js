@@ -26,6 +26,9 @@ export default function RootLayout({ children }) {
             <Link href="/soccer" className="nav-link nav-soccer">
               Soccer
             </Link>
+            <Link href="/top-stories" className="nav-link nav-top-stories">
+              Top 10
+            </Link>
             <Link href="/my-feed" className="nav-link nav-myfeed">
               My Feed
             </Link>
