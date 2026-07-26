@@ -30,7 +30,7 @@ export default function ExplainerBox() {
         setAnswer(data.answer);
       }
     } catch {
-      setError("Couldn't reach the AI explainer right now.");
+      setError("Lost connection to the site's server -- check your connection and try again.");
     } finally {
       setLoading(false);
     }

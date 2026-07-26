@@ -52,8 +52,12 @@ export async function POST(request) {
     });
 
     if (!res.ok) {
+      // Log the real reason server-side (visible in Vercel's Runtime Logs),
+      // since the visitor-facing message stays generic on purpose.
+      const bodyText = await res.text().catch(() => "");
+      console.error(`Anthropic API returned ${res.status}: ${bodyText}`);
       return Response.json(
-        { error: "The AI explainer had trouble answering that. Try again." },
+        { error: `The AI explainer got an error response (status ${res.status}). Try again.` },
         { status: 502 }
       );
     }
@@ -62,6 +66,7 @@ export async function POST(request) {
     const answer = data?.content?.find((block) => block.type === "text")?.text?.trim();
 
     if (!answer) {
+      console.error("Anthropic API responded but no text block was found:", JSON.stringify(data));
       return Response.json(
         { error: "Didn't get a usable answer. Try rephrasing." },
         { status: 502 }
@@ -69,9 +74,10 @@ export async function POST(request) {
     }
 
     return Response.json({ answer });
-  } catch {
+  } catch (err) {
+    console.error("Request to Anthropic API threw an exception:", err);
     return Response.json(
-      { error: "Couldn't reach the AI explainer right now." },
+      { error: "Couldn't reach Claude's API right now -- try again in a moment." },
       { status: 502 }
     );
   }
