@@ -27,7 +27,7 @@ export async function POST(request) {
     return Response.json({ error: "Keep it under 300 characters." }, { status: 400 });
   }
 
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.ANTHROPIC_API_KEY?.trim();
   if (!apiKey) {
     return Response.json(
       { error: "The AI explainer isn't set up yet -- missing API key." },
