@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllNews } from "../lib/news";
+import { getAllNews, backfillMissingImages } from "../lib/news";
 import { getTodaysTopStories } from "../lib/topStories";
 import AutoRefresh from "../components/AutoRefresh";
 import TopStoriesList from "../components/TopStoriesList";
@@ -9,7 +9,8 @@ export const revalidate = 300;
 export default async function HomePage() {
   const allNews = await getAllNews();
   const fetchedAt = Date.now();
-  const stories = getTodaysTopStories(allNews, { limit: 10, hours: 24 });
+  const ranked = getTodaysTopStories(allNews, { limit: 10, hours: 24 });
+  const stories = await backfillMissingImages(ranked);
 
   return (
     <>

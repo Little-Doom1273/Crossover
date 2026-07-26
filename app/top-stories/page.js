@@ -1,4 +1,4 @@
-import { getAllNews } from "../../lib/news";
+import { getAllNews, backfillMissingImages } from "../../lib/news";
 import { getTodaysTopStories } from "../../lib/topStories";
 import AutoRefresh from "../../components/AutoRefresh";
 import TopStoriesList from "../../components/TopStoriesList";
@@ -10,7 +10,8 @@ export const metadata = { title: "Today's Top 10 — Crossover" };
 export default async function TopStoriesPage() {
   const allNews = await getAllNews();
   const fetchedAt = Date.now();
-  const stories = getTodaysTopStories(allNews, { limit: 10, hours: 24 });
+  const ranked = getTodaysTopStories(allNews, { limit: 10, hours: 24 });
+  const stories = await backfillMissingImages(ranked);
 
   return (
     <div className="top-stories-page">
