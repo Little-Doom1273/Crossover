@@ -93,6 +93,12 @@ a {
   color: var(--soccer);
 }
 
+.nav-myfeed:hover,
+.nav-myfeed:focus-visible {
+  border-color: var(--text);
+  color: var(--text);
+}
+
 /* ---- Homepage ---- */
 
 .home-hero {
@@ -339,4 +345,133 @@ a {
   .sport-doors {
     grid-template-columns: 1fr;
   }
+}
+
+/* ---- My Feed ---- */
+/* My Feed isn't tied to one sport, so it uses neutral (--text) accents
+   for its own UI, and colors each result item by its own sport
+   (--basketball / --soccer) via the data-sport attribute below, instead
+   of the single --accent variable the sport hub pages use. */
+
+.my-feed-page {
+  padding-top: 28px;
+}
+
+.my-feed-intro {
+  color: var(--text-dim);
+  margin-top: 8px;
+  max-width: 640px;
+}
+
+.follow-picker {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.follow-group-label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.follow-group-hint {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.follow-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.follow-chip {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.follow-chip:hover,
+.follow-chip:focus-visible {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.follow-chip[data-active="true"] {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.follow-add-row {
+  display: flex;
+  gap: 8px;
+  max-width: 420px;
+}
+
+.follow-add-input {
+  flex: 1;
+  padding: 9px 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+.follow-add-input:focus-visible {
+  outline: none;
+  border-color: var(--text);
+}
+
+.follow-add-btn {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 9px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.follow-add-btn:hover,
+.follow-add-btn:focus-visible {
+  border-color: var(--text);
+}
+
+.my-feed-results {
+  margin-top: 36px;
+}
+
+.news-meta[data-sport="basketball"] {
+  color: var(--basketball);
+}
+
+.news-meta[data-sport="soccer"] {
+  color: var(--soccer);
+}
+
+.sport-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  display: inline-block;
 }
